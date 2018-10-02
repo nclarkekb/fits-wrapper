@@ -8,8 +8,6 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import com.antiaction.bootstrap.Classloader;
-
 public class FitsRun {
 
 	protected String fits_home;
@@ -22,7 +20,7 @@ public class FitsRun {
 
 	protected Object fits_object;
 
-	public static FitsRun getInstance(String fits_home, Classloader classloader) {
+	public static FitsRun getInstance(String fits_home, ClassLoader classloader) {
 		FitsRun fr = null;
 		try {
 			Class<?>[] parameterTypes = new Class<?>[ 1 ];
@@ -99,9 +97,9 @@ public class FitsRun {
 					if (fitsOutput_object != null && output_method != null) {
 						output_method.invoke( fitsOutput_object, new Object[] {
 								new FilterOutputStream(output) {
-					                @Override
-					                public void close() throws IOException {
-					                }
+									@Override
+									public void close() throws IOException {
+									}
 								}
 						} );
 					}

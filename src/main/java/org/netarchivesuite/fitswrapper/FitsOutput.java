@@ -18,7 +18,8 @@ public class FitsOutput {
 	public static final JAXBContext jaxbContext;
 
 	static {
-		inputFactory = XMLInputFactory.newFactory();
+		//inputFactory = XMLInputFactory.newFactory();
+		inputFactory = XMLInputFactory.newInstance();
 		try {
 			jaxbContext = JAXBContext.newInstance( org.netarchivesuite.fitswrapper.jaxb.Fits.class );
 		}
